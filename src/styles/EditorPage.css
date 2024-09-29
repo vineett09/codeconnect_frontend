@@ -1,0 +1,388 @@
+/* Main Container */
+.new-editor-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #eaecef; /* Softer background color */
+  overflow: hidden;
+}
+
+/* Sidebar */
+.new-editor-sidebar {
+  width: 240px; /* Slightly wider for a modern feel */
+  background-color: #2c3e50; /* Darker, modern sidebar color */
+  color: #ecf0f1; /* Lighter text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px; /* Increased padding for spacious look */
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  transition: width 0.3s ease; /* Smooth width transition */
+  flex-shrink: 0;
+}
+
+.new-editor-logo-container {
+  margin-bottom: 30px;
+}
+
+.new-editor-logo {
+  max-width: 150px; /* Larger logo for better visibility */
+  height: auto;
+}
+
+.new-editor-clients {
+  flex-grow: 1;
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.new-editor-members-title {
+  font-size: 20px; /* Increased font size for prominence */
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid #3498db; /* Modern blue accent */
+  padding-bottom: 10px;
+}
+
+.new-editor-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-editor-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px; /* Rounded corners for modern look */
+  font-size: 16px;
+  font-weight: 500; /* Bolder text for visibility */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform for scaling */
+}
+
+.new-editor-button svg {
+  margin-right: 10px;
+}
+
+.new-editor-button:hover {
+  background-color: #3498db; /* Attractive hover color */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.leave-button {
+  background-color: #e74c3c; /* Modern red color */
+}
+
+.leave-button:hover {
+  background-color: #c0392b; /* Darker on hover */
+}
+
+/* Editor Main */
+.new-editor-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Toolbar */
+.new-editor-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 25px; /* Increased padding */
+  background-color: #34495e; /* Modern dark toolbar color */
+  color: #ecf0f1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar Buttons */
+.new-toolbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between buttons/icons */
+}
+
+.new-toolbar-button.login-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.new-toolbar-button.login-button:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.new-toolbar-button.login-button:active {
+  background-color: #388e3c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(2px);
+}
+
+.new-toolbar-button.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 182, 72, 0.5);
+}
+.new-toolbar-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth scaling */
+  margin-right: 25px;
+}
+
+.new-toolbar-icon:hover {
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+/* Tooltip */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -60px; /* Centering */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Interview Toggle */
+.new-editor-interview-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 15px; /* Increased margin */
+}
+
+.interview-toggle-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* Slightly larger for better usability */
+  height: 36px; /* Changed height */
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transform for scaling */
+  margin-right: 20px; /* Adjusted margin */
+}
+
+.interview-toggle-icon.enabled {
+  background-color: #2ecc71; /* Green for enabled */
+  color: white;
+}
+
+.interview-toggle-icon.disabled {
+  background-color: #e74c3c; /* Red for disabled */
+  color: white;
+}
+
+.interview-mode-stamp {
+  font-size: 16px; /* Slightly larger font size */
+  color: #555;
+  font-weight: bold;
+}
+
+/* Chat Icon */
+.new-chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #8e44ad; /* Attractive purple color */
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.new-chat-icon:hover {
+  background-color: #9b59b6; /* Lighter purple on hover */
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Download Icon */
+.download-icon {
+  cursor: pointer;
+  margin-right: 40px; /* Adjusted margin */
+  transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.download-icon:hover {
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+/* Warning Message */
+.warning-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  padding: 25px; /* Increased padding */
+  background-color: #f44336; /* Matching button color */
+
+  border-radius: 10px; /* More rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning-message button {
+  margin-top: 15px; /* More space above button */
+  padding: 12px 25px; /* Larger padding */
+  background-color: rgba(255, 0, 0, 0.9);
+
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.warning-message button:hover {
+  background-color: #c62828; /* Darker on hover */
+}
+
+.confirmation-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color:#000
+}
+
+.confirmation-dialog p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.confirmation-dialog button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmation-dialog button:first-of-type {
+  background-color: #28a745;
+  color: white;
+}
+
+.confirmation-dialog button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Media Queries */
+
+/* Large screens (desktops) */
+@media only screen and (min-width: 1200px) {
+  .new-editor-sidebar {
+    width: 300px; /* Wider sidebar for larger screens */
+  }
+  .new-editor-main {
+    flex-grow: 2;
+  }
+}
+
+/* Medium screens (laptops) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .new-editor-sidebar {
+    width: 240px; /* Slightly narrower sidebar for laptops */
+  }
+  .new-editor-main {
+    flex-grow: 1.5;
+  }
+}
+
+/* Small screens (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .new-editor-sidebar {
+    width: 200px; /* Narrower sidebar for tablets */
+  }
+  .new-editor-main {
+    flex-grow: 1;
+  }
+}
+
+/* Extra small screens (mobiles) */
+@media only screen and (max-width: 767px) {
+  .new-editor-sidebar {
+    width: 100%; /* Full-width sidebar for mobiles */
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .new-editor-main {
+    flex-grow: 1;
+  }
+  .new-editor-toolbar {
+    flex-direction: column;
+  }
+  .new-toolbar-buttons {
+    flex-direction: column;
+  }
+  .new-chat-icon {
+    bottom: 10px;
+    right: 10px;
+  }
+  .download-icon {
+    margin-right: 20px;
+  }
+}

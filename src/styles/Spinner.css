@@ -1,0 +1,14 @@
+/* src/components/Spinner.css */
+.spinner-container {
+    position: fixed; /* Ensures it stays in place */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Optional: adds a slight background to the spinner */
+    z-index: 1000; /* Ensures the spinner is on top of other content */
+  }
+  

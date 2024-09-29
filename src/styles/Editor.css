@@ -1,0 +1,120 @@
+/* Main Editor Container */
+.editor-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  overflow: hidden; /* Prevents overflow of child elements */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Remote Cursor */
+.remote-cursor {
+  border-left: 2px solid #FF5733; /* Vibrant cursor color */
+  background-color: rgba(255, 87, 51, 0.3);
+}
+
+/* File Tabs */
+.file-tabs {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  border-bottom: 2px solid #444;
+  background-color: #222831;
+  white-space: nowrap; /* Prevents line breaks in tabs */
+}
+
+/* File Tab Styling */
+.file-tab {
+  display: flex;
+  align-items: center;
+}
+
+.file-tab button.active-tab {
+  background-color: #007bff; /* Highlight color for active tab */
+  color: white; /* Change text color for visibility */
+  border-bottom: 2px solid #0056b3; /* Optional: accent border */
+}
+
+
+.file-tab button {
+  background-color: #222831;
+  color: white;
+  padding: 10px 15px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded button corners */
+  transition: background-color 0.3s, transform 0.3s; /* Added transform for scaling effect */
+}
+
+.file-tab button:hover {
+  background-color: #555;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.file-tab button:focus {
+  outline: none;
+  border-bottom: 2px solid #007bff; /* Accent color on focus */
+}
+
+.file-tab button.close-btn {
+  background-color: #d9534f; /* Red for close button */
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 5px; /* Rounded corners for close button */
+}
+
+.file-tab button.close-btn:hover {
+  background-color: #c9302c;
+}
+
+.file-tab button.active-tab {
+  background-color: #333; /* Dark background for active tab */
+  font-weight: bold;
+}
+
+/* Language Selector */
+.language-selector {
+  margin: 10px 0;
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for selector */
+  transition: background-color 0.3s, transform 0.3s; /* Animation on hover */
+}
+
+.language-selector:hover {
+  background-color: #555;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.language-selector:focus {
+  outline: none;
+}
+
+.input-file-container {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center the items vertically */
+  background-color: #222831; /* Navbar background color */
+  padding: 10px; /* Padding for better touch area */
+}
+
+input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.file-upload-button {
+  background-color: #007bff; /* Blue button for file upload */
+  color: white;
+  padding: 8px 12px; /* Slightly increased padding */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.file-upload-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

@@ -1,0 +1,112 @@
+.getting-started-container {
+  padding: 2rem;
+  background-color: #ffffff;
+  max-width: 90%; /* Use percentage for better responsiveness */
+  margin: 2rem auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.getting-started-container h1 {
+  font-size: 2rem; /* Adjusted for better scaling on smaller screens */
+  color: #2980b9; /* A vibrant color for the main heading */
+}
+
+.getting-started-container h2 {
+  font-size: 1.6rem;
+  color: #34495e;
+  margin-top: 1.5rem;
+}
+
+.getting-started-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Steps Container */
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.step-card {
+  background-color: #f7f9fc;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem;
+  width: 100%; /* Use percentage for responsiveness */
+  max-width: 200px; /* Set a maximum width for larger screens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+.step-card h2 {
+  font-size: 1.3rem; /* Adjusted for better scaling */
+  color: #2980b9; /* Consistent color for headings */
+}
+
+.step-card p {
+  font-size: 0.9rem; /* Adjusted for better scaling */
+  color: #444;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .getting-started-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .getting-started-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .getting-started-container p {
+    font-size: 1rem;
+  }
+
+  .step-card {
+    max-width: 45%; /* Adjust width for tablets */
+  }
+
+  .steps-container {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .getting-started-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .getting-started-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .getting-started-container p {
+    font-size: 0.9rem;
+  }
+
+  .step-card {
+    width: 100%; /* Full width on small screens */
+    margin: 0.5rem 0; /* Reduced margin for better spacing */
+  }
+
+  .step-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .step-card p {
+    font-size: 0.8rem;
+  }
+}

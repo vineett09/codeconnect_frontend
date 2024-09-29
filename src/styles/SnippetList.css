@@ -1,0 +1,133 @@
+.snippet-list-container {
+  padding: 20px;
+}
+
+h2 {
+  color: white; /* Changed from font to color */
+  margin-bottom: 20px; /* Adjusted margin for better spacing */
+  font-size: 2rem; /* Increased font size */
+}
+
+.snippet-cards {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px; /* Increased gap between cards */
+}
+
+.snippet-card {
+  background-color: #f4f4f4; /* Consistent background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd; /* Added border for consistency */
+}
+
+.snippet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increased shadow for a more pronounced effect */
+}
+
+.snippet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Added margin to create space between header and code */
+}
+
+.snippet-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.delete-button {
+  background-color: #ff4d4d; /* Consistent color for delete button */
+  border: none;
+  color: white;
+  padding: 8px 16px; /* Increased padding for better appearance */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #e63939; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.snippet-code {
+  background-color: #333;
+  color: #f8f8f2;
+  padding: 15px; /* Increased padding for better readability */
+  border-radius: 4px;
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, monospace;
+  max-height: 200px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 10px; /* Added margin between code and language */
+}
+
+.snippet-language {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: right; /* Align language to the right */
+  margin-top: 10px;
+  font-style: italic; /* Added italic style for distinction */
+}
+
+.snippet-created-at {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem; /* Adjust heading size on smaller screens */
+  }
+
+  .snippet-cards {
+    gap: 20px; /* Reduce gap on smaller screens */
+  }
+
+  .snippet-card {
+    padding: 15px; /* Reduce padding for cards */
+  }
+
+  .snippet-header h3 {
+    font-size: 1.2rem; /* Adjust header font size */
+  }
+
+  .delete-button {
+    padding: 6px 12px; /* Reduce button padding */
+  }
+
+  .snippet-code {
+    padding: 10px; /* Reduce padding for code block */
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem; /* Further adjust heading size */
+  }
+
+  .snippet-header h3 {
+    font-size: 1rem; /* Further adjust header font size */
+  }
+
+  .delete-button {
+    padding: 5px 10px; /* Further reduce button padding */
+  }
+
+  .snippet-language {
+    font-size: 0.8rem; /* Smaller font size for language */
+  }
+
+  .snippet-created-at {
+    font-size: 0.8rem; /* Smaller font size for created date */
+  }
+}

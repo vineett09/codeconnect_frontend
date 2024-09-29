@@ -1,0 +1,117 @@
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6D83FF, #FC6736);
+  animation: fadeIn 1s ease-in-out;
+  padding: 0 20px; /* Add padding for small devices */
+}
+
+.register-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.register-logo {
+  max-width: 120px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.register-title {
+  font-size: 28px;
+  color: #333333;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.register-form-group {
+  margin-bottom: 15px;
+}
+
+.register-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 16px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.register-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+.register-text {
+  margin-top: 15px;
+  color: #666666;
+  animation: fadeIn 3.5s ease-in-out;
+}
+
+.register-link {
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 600px) {
+  .register-title {
+      font-size: 24px; /* Adjust title size for smaller screens */
+  }
+
+  .register-button,
+  .register-input {
+      padding: 10px; /* Adjust padding for buttons and inputs */
+      font-size: 14px; /* Reduce font size for better fit */
+  }
+
+  .register-card {
+      padding: 20px; /* Adjust card padding for smaller screens */
+  }
+}

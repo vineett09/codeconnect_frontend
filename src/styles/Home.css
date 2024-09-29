@@ -1,0 +1,142 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6D83FF, #FC6736);
+  animation: fadeIn 1s ease-in-out;
+  padding: 20px; /* Added padding for smaller screens */
+}
+
+.home-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.home-logo {
+  max-width: 120px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.home-title {
+  font-size: 24px; /* Adjusted for responsiveness */
+  color: #333333;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.home-form-group {
+  margin-bottom: 15px;
+}
+
+.home-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 16px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.home-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
+
+.home-text {
+  margin-top: 15px;
+  color: #666666;
+  font-size: 14px; /* Adjusted for responsiveness */
+  animation: fadeIn 3.5s ease-in-out;
+}
+
+.home-link {
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.home-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .home-title {
+    font-size: 22px;
+  }
+
+  .home-input,
+  .home-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .home-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-title {
+    font-size: 20px;
+  }
+
+  .home-input,
+  .home-button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .home-text {
+    font-size: 12px;
+  }
+
+  .home-card {
+    padding: 20px;
+  }
+
+  .home-logo {
+    max-width: 100px;
+  }
+}
