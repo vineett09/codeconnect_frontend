@@ -1,5 +1,4 @@
 import { io } from "socket.io-client";
-import { ACTIONS } from "./Actions";
 
 export const initSocket = async () => {
   const options = {
