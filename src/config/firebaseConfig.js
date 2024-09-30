@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(app); // eslint-disable-line no-unused-vars
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
