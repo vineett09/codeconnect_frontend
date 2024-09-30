@@ -8,7 +8,7 @@ function Contact() {
 
   const handleEmailClick = () => {
     setLoading(true);
-    window.location.href = "mailto:support@codeconnect.com";
+    window.location.href = "mailto:codeconnect@gmail.com";
     setTimeout(() => {
       setLoading(false); // Stops loading after redirection
     }, 3000); // Adjust the timeout duration as needed
