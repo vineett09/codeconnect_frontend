@@ -15,6 +15,8 @@ function ChatWindow({ socketRef, roomId, username, toggleChat }) {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    const socket = socketRef.current; // Store the current value in a stable variable
+
     const handleMessageReceive = ({ message, username: senderUsername }) => {
       const newMessages = [...messages, { message, username: senderUsername }];
       setMessages(newMessages);
@@ -34,16 +36,16 @@ function ChatWindow({ socketRef, roomId, username, toggleChat }) {
       }
     };
 
-    if (socketRef.current) {
-      socketRef.current.on(ACTIONS.RECEIVE_MESSAGE, handleMessageReceive);
+    if (socket) {
+      socket.on(ACTIONS.RECEIVE_MESSAGE, handleMessageReceive);
     }
 
     return () => {
-      if (socketRef.current) {
-        socketRef.current.off(ACTIONS.RECEIVE_MESSAGE, handleMessageReceive);
+      if (socket) {
+        socket.off(ACTIONS.RECEIVE_MESSAGE, handleMessageReceive);
       }
     };
-  }, [socketRef, messages, roomId, username]);
+  }, [messages, roomId, username, socketRef]); // Added socketRef to the dependencies
 
   useEffect(() => {
     // Scroll to the bottom whenever messages change
