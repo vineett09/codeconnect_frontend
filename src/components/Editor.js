@@ -54,14 +54,16 @@ const EditorComponent = ({ socketRef, roomId, onMount }) => {
   };
 
   useEffect(() => {
-    if (socketRef.current) {
+    const socket = socketRef.current; // Create a stable reference to socketRef.current
+
+    if (socket) {
       // Handle new file opened by another user
-      socketRef.current.on(ACTIONS.FILE_OPENED, (file) => {
+      socket.on(ACTIONS.FILE_OPENED, (file) => {
         setFiles((prevFiles) => [...prevFiles, file]);
       });
 
       // Handle code changes
-      socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code, fileId }) => {
+      socket.on(ACTIONS.CODE_CHANGE, ({ code, fileId }) => {
         setFiles((prevFiles) =>
           prevFiles.map((file) =>
             file.id === fileId ? { ...file, content: code } : file
@@ -70,7 +72,7 @@ const EditorComponent = ({ socketRef, roomId, onMount }) => {
       });
 
       // Handle language changes
-      socketRef.current.on(ACTIONS.LANGUAGE_CHANGE, ({ language }) => {
+      socket.on(ACTIONS.LANGUAGE_CHANGE, ({ language }) => {
         setLanguage(language);
         setFiles((prevFiles) =>
           prevFiles.map((file, index) =>
@@ -81,13 +83,14 @@ const EditorComponent = ({ socketRef, roomId, onMount }) => {
     }
 
     return () => {
-      if (socketRef.current) {
-        socketRef.current.off(ACTIONS.FILE_OPENED);
-        socketRef.current.off(ACTIONS.CODE_CHANGE);
-        socketRef.current.off(ACTIONS.LANGUAGE_CHANGE);
+      if (socket) {
+        // Use the stable reference for cleanup
+        socket.off(ACTIONS.FILE_OPENED);
+        socket.off(ACTIONS.CODE_CHANGE);
+        socket.off(ACTIONS.LANGUAGE_CHANGE);
       }
     };
-  }, [socketRef, roomId, activeFileIndex]);
+  }, [socketRef, roomId, activeFileIndex]); // Dependencies remain the same
 
   const handleEditorChange = (value) => {
     const activeFile = files[activeFileIndex];
