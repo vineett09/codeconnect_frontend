@@ -7,7 +7,11 @@ function Contact() {
   const [loading, setLoading] = useState(false);
 
   const handleEmailClick = () => {
+    setLoading(true);
     window.location.href = "mailto:support@codeconnect.com";
+    setTimeout(() => {
+      setLoading(false); // Stops loading after redirection
+    }, 3000); // Adjust the timeout duration as needed
   };
 
   return (
