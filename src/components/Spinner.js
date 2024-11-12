@@ -1,8 +1,12 @@
 import React from "react";
-import "../styles/Spinner.css"; // Make sure to include the CSS for the spinner
+import "../styles/Spinner.css"; // Ensure this CSS file is included
 
-const Spinner = () => {
-  return <div class="loader"></div>;
+const Spinner = ({ loading }) => {
+  return (
+    <div className={`spinner-container ${loading ? "loading" : ""}`}>
+      <div className="loader"></div>
+    </div>
+  );
 };
 
 export default Spinner;
