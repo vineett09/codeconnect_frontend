@@ -3,30 +3,30 @@
   display: flex;
   height: 100vh;
   width: 100vw;
-  background-color: #eaecef; /* Softer background color */
+  background-color: #f0f2f5; /* Soft gray background */
   overflow: hidden;
 }
 
 /* Sidebar */
 .new-editor-sidebar {
-  width: 240px; /* Slightly wider for a modern feel */
+  width: 280px; /* Wider sidebar for a more spacious feel */
   background-color: #2c3e50; /* Darker, modern sidebar color */
   color: #ecf0f1; /* Lighter text color */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 20px; /* Increased padding for spacious look */
-  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-  transition: width 0.3s ease; /* Smooth width transition */
+  padding: 40px 25px; /* Increased padding for a more balanced look */
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  transition: width 0.4s ease; /* Smooth width transition */
   flex-shrink: 0;
 }
 
 .new-editor-logo-container {
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* More space below the logo */
 }
 
 .new-editor-logo {
-  max-width: 150px; /* Larger logo for better visibility */
+  max-width: 180px; /* Larger logo for better visibility */
   height: auto;
 }
 
@@ -34,15 +34,15 @@
   flex-grow: 1;
   width: 100%;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* More space below the client list */
 }
 
 .new-editor-members-title {
-  font-size: 20px; /* Increased font size for prominence */
-  margin-bottom: 15px;
+  font-size: 22px; /* Increased font size for prominence */
+  margin-bottom: 20px;
   text-align: center;
-  border-bottom: 2px solid #3498db; /* Modern blue accent */
-  padding-bottom: 10px;
+  border-bottom: 3px solid #3498db; /* Thicker modern blue accent */
+  padding-bottom: 15px;
 }
 
 .new-editor-buttons {
@@ -55,23 +55,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 14px 18px; /* Increased padding for better clickability */
+  margin-bottom: 20px; /* More space between buttons */
   border: none;
-  border-radius: 8px; /* Rounded corners for modern look */
-  font-size: 16px;
-  font-weight: 500; /* Bolder text for visibility */
+  border-radius: 10px; /* Rounder corners for a modern look */
+  font-size: 17px;
+  font-weight: 600; /* Bolder text for visibility */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform for scaling */
+  transition: background-color 0.4s ease, transform 0.4s ease; /* Longer transitions for a smoother feel */
 }
 
 .new-editor-button svg {
-  margin-right: 10px;
+  margin-right: 12px; /* Adjusted spacing between icon and text */
 }
 
 .new-editor-button:hover {
   background-color: #3498db; /* Attractive hover color */
-  transform: translateY(-2px); /* Lift effect on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow on hover */
 }
 
 .leave-button {
@@ -90,59 +91,110 @@
   background-color: #ffffff;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
 }
 
 /* Toolbar */
 .new-editor-toolbar {
   display: flex;
   justify-content: flex-end;
-  padding: 15px 25px; /* Increased padding */
+  padding: 18px 30px; /* Increased padding */
   background-color: #34495e; /* Modern dark toolbar color */
   color: #ecf0f1;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Toolbar Buttons */
 .new-toolbar-buttons {
   display: flex;
   align-items: center;
-  gap: 15px; /* Space between buttons/icons */
+  gap: 18px; /* More space between buttons/icons */
 }
 
-.new-toolbar-button.login-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 600;
+/* Auth Section Styles */
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.auth-button {
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
   border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome-text {
+  color: var(--text-color);
+}
+
+.menu-dropdown {
+  position: relative;
+}
+
+.menu-trigger {
+  background: none;
+  border: none;
+  color: var(--text-color);
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-right: 20px;
+}
+.menu-items {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: rgba(26, 26, 46, 0.9);
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: none;
+  width: 200px; /* Adjust the width as needed */
 }
 
-.new-toolbar-button.login-button:hover {
-  background-color: #45a049;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.menu-dropdown:hover .menu-items {
+  display: block;
 }
 
-.new-toolbar-button.login-button:active {
-  background-color: #388e3c;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: translateY(2px);
+.menu-items a,
+.menu-items button {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }
 
-.new-toolbar-button.login-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(72, 182, 72, 0.5);
+.menu-items a:hover,
+.menu-items button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .new-toolbar-icon {
   cursor: pointer;
-  transition: transform 0.3s ease; /* Smooth scaling */
-  margin-right: 25px;
+  transition: transform 0.4s ease; /* Longer transition for a smoother feel */
+  margin-right: 30px; /* Adjusted spacing */
 }
 
 .new-toolbar-icon:hover {
@@ -157,19 +209,19 @@
 
 .tooltip-text {
   visibility: hidden;
-  width: 120px;
+  width: 140px;
   background-color: #333;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
+  border-radius: 8px; /* Rounder corners */
+  padding: 10px 0;
   position: absolute;
   z-index: 1;
-  top: 125%;
+  top: 150%;
   left: 50%;
-  margin-left: -60px; /* Centering */
+  margin-left: -70px; /* Centering */
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
 }
 
 .tooltip-text::after {
@@ -177,8 +229,8 @@
   position: absolute;
   bottom: 100%;
   left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
+  margin-left: -6px;
+  border-width: 6px;
   border-style: solid;
   border-color: transparent transparent #333 transparent;
 }
@@ -192,7 +244,7 @@
 .new-editor-interview-toggle {
   display: flex;
   align-items: center;
-  margin-top: 15px; /* Increased margin */
+  margin-top: 20px; /* Increased margin */
 }
 
 .interview-toggle-icon {
@@ -200,14 +252,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px; /* Slightly larger for better usability */
-  height: 36px; /* Changed height */
+  width: 40px; /* Slightly larger for better usability */
+  height: 40px; /* Changed height */
   border-radius: 50%;
   background-color: #fff;
   color: #333;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transform for scaling */
-  margin-right: 20px; /* Adjusted margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease; /* Longer transitions */
+  margin-right: 25px; /* Adjusted margin */
 }
 
 .interview-toggle-icon.enabled {
@@ -220,8 +272,12 @@
   color: white;
 }
 
+.interview-toggle-icon:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
 .interview-mode-stamp {
-  font-size: 16px; /* Slightly larger font size */
+  font-size: 17px; /* Slightly larger font size */
   color: #555;
   font-weight: bold;
 }
@@ -229,28 +285,29 @@
 /* Chat Icon */
 .new-chat-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   background-color: #8e44ad; /* Attractive purple color */
   color: white;
   border-radius: 50%;
-  padding: 15px;
+  padding: 18px; /* Increased padding */
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
   z-index: 1000;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
 .new-chat-icon:hover {
   background-color: #9b59b6; /* Lighter purple on hover */
-  transform: scale(1.1); /* Scale up on hover */
+  transform: scale(1.12); /* Scale up on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Download Icon */
 .download-icon {
   cursor: pointer;
-  margin-right: 40px; /* Adjusted margin */
-  transition: transform 0.3s ease; /* Smooth scaling */
+  margin-right: 45px; /* Adjusted margin */
+  transition: transform 0.4s ease;
 }
 
 .download-icon:hover {
@@ -264,11 +321,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  padding: 25px; /* Increased padding */
+  padding: 30px; /* Increased padding */
   background-color: #f44336; /* Matching button color */
-
-  border-radius: 10px; /* More rounded corners */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32);
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -277,15 +333,14 @@
 }
 
 .warning-message button {
-  margin-top: 15px; /* More space above button */
-  padding: 12px 25px; /* Larger padding */
+  margin-top: 20px; /* More space above button */
+  padding: 14px 30px; /* Increased padding */
   background-color: rgba(255, 0, 0, 0.9);
-
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.4s ease;
 }
 
 .warning-message button:hover {
@@ -298,25 +353,25 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
   z-index: 1000;
   text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  color:#000
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.12);
+  color: #000;
 }
 
 .confirmation-dialog p {
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 25px;
+  font-size: 17px;
 }
 
 .confirmation-dialog button {
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 12px 24px;
+  margin: 6px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -333,32 +388,32 @@
 /* Media Queries */
 
 /* Large screens (desktops) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
   .new-editor-sidebar {
-    width: 300px; /* Wider sidebar for larger screens */
+    width: 320px; /* Wider sidebar for larger screens */
+  }
+  .new-editor-main {
+    flex-grow: 2.5;
+  }
+}
+
+/* Medium screens (laptops) */
+@media only screen and (min-width: 1024px) and (max-width: 1399px) {
+  .new-editor-sidebar {
+    width: 280px; /* Slightly narrower sidebar for laptops */
   }
   .new-editor-main {
     flex-grow: 2;
   }
 }
 
-/* Medium screens (laptops) */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+/* Small screens (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .new-editor-sidebar {
-    width: 240px; /* Slightly narrower sidebar for laptops */
+    width: 220px; /* Narrower sidebar for tablets */
   }
   .new-editor-main {
     flex-grow: 1.5;
-  }
-}
-
-/* Small screens (tablets) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .new-editor-sidebar {
-    width: 200px; /* Narrower sidebar for tablets */
-  }
-  .new-editor-main {
-    flex-grow: 1;
   }
 }
 
@@ -368,21 +423,24 @@
     width: 100%; /* Full-width sidebar for mobiles */
     flex-direction: row;
     justify-content: space-between;
+    padding: 20px 15px;
   }
   .new-editor-main {
     flex-grow: 1;
   }
   .new-editor-toolbar {
     flex-direction: column;
+    padding: 15px 20px;
   }
   .new-toolbar-buttons {
     flex-direction: column;
+    gap: 12px;
   }
   .new-chat-icon {
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
   }
   .download-icon {
-    margin-right: 20px;
+    margin-right: 25px;
   }
 }
