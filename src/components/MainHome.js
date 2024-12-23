@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/features/authSlice";
+import {
+  ChevronDown,
+  Code,
+  Users,
+  Lock,
+  FileCode,
+  MessageSquare,
+} from "lucide-react";
 import "../styles/MainHome.css";
-import logo from "../images/logo-3.png";
-
 function MainHome() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    const handleScroll = () => {
+      const elements = document.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight * 0.8;
+        if (isInView) {
+          el.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -19,115 +43,142 @@ function MainHome() {
   return (
     <div className="main-home-container">
       <nav className="navbar">
-        <img src={logo} alt="CodeConnect Logo" className="logo" />
-        <ul className="nav-menu">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/getting-started">Getting Started</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-        <div className="auth-button">
-          {isAuthenticated ? (
-            <div className="user-info">
-              <span>Welcome, {user.username}</span>
-              <div className="dropdown">
-                <button className="dropbtn">▼</button>
-                <div className="dropdown-content">
-                  <Link to="/snippets/create">Create Snippet</Link>
-                  <Link to="/snippets">My Snippets</Link>
-                  <button onClick={handleLogout} className="dropdown-item">
-                    Logout
+        <div className="navbar-content">
+          <div className="brand">
+            <Code className="brand-icon" size={24} />
+            <span className="brand-text">CodeConnect</span>
+          </div>
+
+          <div className="nav-links">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/getting-started" className="nav-link">
+              Getting Started
+            </Link>
+            <Link to="/contact" className="nav-link">
+              Contact
+            </Link>
+          </div>
+
+          <div className="auth-section">
+            {isAuthenticated ? (
+              <div className="user-menu">
+                <span className="welcome-text">Welcome, {user.username}</span>
+                <div className="menu-dropdown">
+                  <button className="menu-trigger">
+                    <ChevronDown size={20} />
                   </button>
+                  <div className="menu-items">
+                    <Link to="/snippets/create">Create Snippet</Link>
+                    <Link to="/snippets">My Snippets</Link>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <Link to="/login">
-              <button className="cta-button-up">Login</button>
-            </Link>
-          )}
+            ) : (
+              <Link to="/login" className="auth-button">
+                Login
+              </Link>
+            )}
+          </div>
         </div>
       </nav>
 
-      <div className="hero-section">
-        <h1 className="hero-title">Welcome to Code Connect</h1>
-        <p className="hero-subtitle">
-          Experience real-time collaborative coding.
-        </p>
-        <Link to="/home">
-          <button className="cta-button">Create Room Now</button>
-        </Link>
-        <span className="free-text">It's free to join!</span>
-      </div>
-
-      <section className="overview-section">
-        <h2>What is Code Connect?</h2>
-        <p>
-          Code Connect is a powerful collaborative coding platform tailored for
-          developers, educators, and teams alike. Whether you're conducting
-          coding interviews, collaborating on projects, or brainstorming ideas,
-          our platform enables seamless real-time coding experiences.
-        </p>
-      </section>
-
-      <section className="features-section">
-        <div className="features-container">
-          <div className="feature-card">
-            <h3>Real-Time Collaboration</h3>
-            <p>
-              Work alongside your team in real-time. Share your code and solve
-              problems together.
-            </p>
+      <section className={`hero ${isVisible ? "visible" : ""}`}>
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <span className="gradient-text">Code Together,</span>
+            <span className="gradient-text">Create Together</span>
+          </h1>
+          <p className="hero-subtitle">
+            Experience seamless real-time collaborative coding
+          </p>
+          <div className="hero-actions">
+            <Link to="/home" className="primary-button">
+              Create Room Now
+              <span className="button-shadow"></span>
+            </Link>
           </div>
-          <div className="feature-card">
-            <h3>Intuitive Interface</h3>
-            <p>
-              Our user-friendly platform makes coding a breeze. Start your
-              coding journey effortlessly.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3>Strict Mode</h3>
-            <p>
-              Enhance the integrity of coding interviews with our specialized
-              strict mode features.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3>Code Snippets</h3>
-            <p>
-              Save and manage your favorite code snippets for easy access and
-              sharing.
-            </p>
-          </div>
-          <div className="feature-card">
-            <h3>Integrated Chat</h3>
-            <p>
-              Stay connected with your team using our built-in chat feature for
-              seamless communication.
-            </p>
-          </div>
+        </div>
+        <div className="hero-background">
+          <div className="gradient-sphere"></div>
+          <div className="code-pattern"></div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <h2>Ready to Get Started?</h2>
-        <p> start collaborating today!</p>
-        <Link to="/home">
-          <button className="cta-button">Join Now</button>
-        </Link>
+      <section className="overview animate-on-scroll">
+        <div className="overview-content">
+          <h2>What is Code Connect?</h2>
+          <p>
+            Code Connect is a powerful collaborative coding platform tailored
+            for developers, educators, and teams alike. Whether you're
+            conducting coding interviews, collaborating on projects, or
+            brainstorming ideas, our platform enables seamless real-time coding
+            experiences.
+          </p>
+        </div>
+      </section>
+
+      <section className="features">
+        <div className="features-grid">
+          {[
+            {
+              icon: <Users size={24} />,
+              title: "Real-Time Collaboration",
+              description:
+                "Work alongside your team in real-time. Share your code and solve problems together.",
+            },
+            {
+              icon: <Code size={24} />,
+              title: "Intuitive Interface",
+              description:
+                "Our user-friendly platform makes coding a breeze. Start your coding journey effortlessly.",
+            },
+            {
+              icon: <Lock size={24} />,
+              title: "Strict Mode",
+              description:
+                "Enhance the integrity of coding interviews with our specialized strict mode features.",
+            },
+            {
+              icon: <FileCode size={24} />,
+              title: "Code Snippets",
+              description:
+                "Save and manage your favorite code snippets for easy access and sharing.",
+            },
+            {
+              icon: <MessageSquare size={24} />,
+              title: "Integrated Chat",
+              description:
+                "Stay connected with your team using our built-in chat feature for seamless communication.",
+            },
+          ].map((feature, index) => (
+            <div key={index} className="feature-card animate-on-scroll">
+              <div className="feature-icon">{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta animate-on-scroll">
+        <div className="cta-content">
+          <h2>Ready to Get Started?</h2>
+          <p>Join thousands of developers already using Code Connect</p>
+          <Link to="/home" className="cta-button">
+            Join Now
+            <span className="button-shadow"></span>
+          </Link>
+        </div>
       </section>
 
       <footer className="footer">
-        <p>
-          © 2024 CodeConnect. All rights reserved. |{" "}
+        <div className="footer-content">
+          <p>© 2024 CodeConnect. All rights reserved.</p>
           <Link to="/privacy-policy">Privacy Policy</Link>
-        </p>
+        </div>
       </footer>
     </div>
   );
