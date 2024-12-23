@@ -7,7 +7,7 @@
 }
 
 .side-navbar {
-  width: 30%;
+  width: 100%; /* Increased width for the form */
   background-color: #f9f9f9;
   padding: 20px;
   border-right: 1px solid #ccc;
@@ -23,7 +23,7 @@
 }
 
 .editor-container {
-  width: 70%;
+  width: 60%; /* Adjust width to complement the increased form size */
   padding: 20px;
 }
 
@@ -33,6 +33,7 @@
     width: 100%; /* Full width on smaller screens */
   }
 }
+
 
 .form-group {
   margin-bottom: 20px;
