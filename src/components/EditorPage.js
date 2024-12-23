@@ -13,6 +13,7 @@ import { initSocket } from "../Socket";
 import { ACTIONS } from "../Actions";
 import Spinner from "../components/Spinner";
 import "../styles/EditorPage.css";
+import { ChevronDown } from "lucide-react";
 
 function EditorPage() {
   const [clients, setClients] = useState([]);
@@ -326,30 +327,31 @@ function EditorPage() {
                   className="download-icon"
                   onClick={handleDownload}
                 />{" "}
-                {!isAuthenticated && (
-                  <Link to="/login">
-                    <button className="new-toolbar-button login-button">
-                      Login
-                    </button>
+              </div>
+
+              <div className="auth-section">
+                {isAuthenticated ? (
+                  <div className="user-menu">
+                    <span className="welcome-text">
+                      Welcome, {user.username}
+                    </span>
+                    <div className="menu-dropdown">
+                      <button className="menu-trigger">
+                        <ChevronDown size={20} />
+                      </button>
+                      <div className="menu-items">
+                        <Link to="/snippets/create">Create Snippet</Link>
+                        <Link to="/snippets">My Snippets</Link>
+                        <button onClick={handleLogout}>Logout</button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Link to="/login" className="auth-button">
+                    Login
                   </Link>
                 )}
               </div>
-
-              {isAuthenticated && (
-                <div className="user-info">
-                  <span>Welcome, {user.username}</span>
-                  <div className="dropdown">
-                    <button className="dropbtn">▼</button>
-                    <div className="dropdown-content">
-                      <Link to="/snippets/create">Create Snippet</Link>
-                      <Link to="/snippets">My Snippets</Link>
-                      <button onClick={handleLogout} className="dropdown-item">
-                        Logout
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
             <Editor
               socketRef={socketRef}
