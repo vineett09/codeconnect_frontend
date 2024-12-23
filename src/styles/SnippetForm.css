@@ -23,7 +23,7 @@
 }
 
 .editor-container {
-  width: 60%; /* Adjust width to complement the increased form size */
+  width: 100%; /* Adjust width to complement the increased form size */
   padding: 20px;
 }
 
