@@ -1,63 +1,78 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/features/authSlice";
+import { ChevronDown, Code } from "lucide-react";
 import "../styles/Layout.css";
-import logo from "../images/logo-3.png";
 
 function Layout({ children }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
     <div className="layout-container">
       <nav className="navbar">
-        <img src={logo} alt="CodeConnect Logo" className="logo" />
-        <ul className="nav-menu">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/getting-started">Getting Started</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-        <div className="auth-button">
-          {isAuthenticated ? (
-            <div className="user-info">
-              <span>Welcome, {user?.username}</span>
-              <div className="dropdown">
-                <button className="dropbtn">▼</button>
-                <div className="dropdown-content">
-                  <Link to="/snippets">My Snippets</Link>
-                  <Link to="/snippets/create">Create Snippet</Link>
+        <div className="navbar-content">
+          <div className="brand">
+            <Code className="brand-icon" size={24} />
+            <span className="brand-text">CodeConnect</span>
+          </div>
 
-                  <button onClick={handleLogout} className="dropdown-item">
-                    Logout
+          <div className="nav-links">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/getting-started" className="nav-link">
+              Getting Started
+            </Link>
+            <Link to="/contact" className="nav-link">
+              Contact
+            </Link>
+          </div>
+
+          <div className="auth-section">
+            {isAuthenticated ? (
+              <div className="user-menu">
+                <span className="welcome-text">Welcome, {user.username}</span>
+                <div className="menu-dropdown">
+                  <button className="menu-trigger">
+                    <ChevronDown size={20} />
                   </button>
+                  <div className="menu-items">
+                    <Link to="/snippets/create">Create Snippet</Link>
+                    <Link to="/snippets">My Snippets</Link>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <Link to="/login">
-              <button className="cta-button-up">Login</button>
-            </Link>
-          )}
+            ) : (
+              <Link to="/login" className="auth-button">
+                Login
+              </Link>
+            )}
+          </div>
         </div>
       </nav>
+
       <div className="content">{children}</div>
+
       <footer className="footer">
-        <p>
-          © 2024 CodeConnect. All rights reserved. |{" "}
+        <div className="footer-content">
+          <p>© 2024 CodeConnect. All rights reserved.</p>
           <Link to="/privacy-policy">Privacy Policy</Link>
-        </p>
+        </div>
       </footer>
     </div>
   );
