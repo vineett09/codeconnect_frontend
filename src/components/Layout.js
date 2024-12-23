@@ -9,6 +9,7 @@ function Layout({ children }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
+  // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
